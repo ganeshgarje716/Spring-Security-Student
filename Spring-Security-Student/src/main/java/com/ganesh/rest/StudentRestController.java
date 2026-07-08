@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ganesh.Dto.StudentDto;
 import com.ganesh.entity.Student;
 import com.ganesh.service.StudentService;
+
+import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/v1/student")
@@ -45,4 +48,12 @@ public class StudentRestController {
 		return new ResponseEntity<List<Student>>(allStudents, HttpStatus.OK);
 	}
 
+	
+	@GetMapping("/byid/{id}")
+	public ResponseEntity<Student> findStudentById(@PathVariable Integer id) {
+		
+		Student studentById = studentService.findStudentById(id);
+		
+		return new ResponseEntity<Student>(studentById, HttpStatus.OK);
+	}
 }

@@ -1,12 +1,14 @@
 package com.ganesh.service.imp;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.ganesh.Dto.StudentDto;
 import com.ganesh.entity.Student;
+import com.ganesh.exception.StudentNotFoundException;
 import com.ganesh.repository.StudentRepository;
 import com.ganesh.service.StudentService;
 
@@ -65,6 +67,22 @@ public class StudentServiceImp implements StudentService{
 	public List<Student> findAllStudents() {
 		
 		return studentRepository.findAll();	
+	}
+
+
+	@Override
+	public Student findStudentById(Integer id) {
+		
+		Optional<Student> byId = studentRepository.findById(id);
+		
+		if (byId.isPresent()) {
+			
+			Student student = byId.get();
+			
+			return student;
+		}
+
+	    throw new StudentNotFoundException("Student Not Found With Id = "+id); 
 	}
 
 }

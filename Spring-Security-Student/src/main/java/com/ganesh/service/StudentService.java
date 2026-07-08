@@ -11,5 +11,7 @@ public interface StudentService {
 	StudentDto saveStudent(StudentDto studentDto);
 	
 	List<Student> findAllStudents();
+	
+	Student findStudentById(Integer id);
 
 }
