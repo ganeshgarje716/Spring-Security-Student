@@ -32,6 +32,8 @@ public class Student {
 	@Column(unique = true)
 	private String mobileNo;
 	
+	private String gender;
+	
 	private String dob;
 	
 	private String department;

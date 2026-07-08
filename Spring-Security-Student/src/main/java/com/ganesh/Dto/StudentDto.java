@@ -24,6 +24,9 @@ public class StudentDto {
 	@NotNull(message = "Mobile No is Required")
 	private String mobileNo;
 	
+	@NotNull(message = "Gender is Required")
+	private String gender;
+	
 	@NotNull(message = "Date of Birth is Required")
 	private String dob;
 	
