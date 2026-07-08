@@ -56,4 +56,13 @@ public class StudentRestController {
 		
 		return new ResponseEntity<Student>(studentById, HttpStatus.OK);
 	}
+	
+	
+	
+	public ResponseEntity<String> updateStudentById(@PathVariable Integer id, @RequestBody Student student) {
+		
+		String updateStudentById = studentService.updateStudentById(id, student);
+		
+		return new ResponseEntity<String>(updateStudentById, HttpStatus.OK);
+	}
 }
