@@ -15,5 +15,7 @@ public interface StudentService {
 	Student findStudentById(Integer id);
 	
 	String updateStudentById(Integer id, Student student);
+	
+	String deleteStudentById(Integer id);
 
 }
