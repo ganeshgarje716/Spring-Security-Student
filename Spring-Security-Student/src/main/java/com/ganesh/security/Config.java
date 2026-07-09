@@ -44,7 +44,7 @@ public class Config {
 	
 	
 	
-	
+	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) {
 		
 		http.csrf(csrf->csrf.disable());
